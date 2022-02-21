@@ -2,6 +2,7 @@
 set -e
 
 setup_venv() {
+    rm -rf venv/
     python_executable="python3"
     if ! command -v python3 &> /dev/null
     then
@@ -9,7 +10,7 @@ setup_venv() {
     fi
     python3 -m venv venv
     source venv/bin/activate
-    pip install --upgrade pip wheel setuptools build
+    pip install --upgrade pip wheel setuptools
     pip install --editable .[TEST]
 }
 
