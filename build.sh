@@ -20,4 +20,10 @@ test() {
     pytest --cov=efi_monitor tests/
 }
 
+build() {
+    pip install --upgrade twine build
+    python -m build
+    python -m twine upload --repository pypi dist/*
+}
+
 "$@"
